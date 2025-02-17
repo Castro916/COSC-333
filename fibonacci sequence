@@ -1,0 +1,47 @@
+#include <iostream>
+
+using namespace std;
+
+// Function to calculate Fibonacci using iterative method
+void fibonacciIterative(int n) {
+    unsigned long long a = 0, b = 1, next;
+    cout << "Fibonacci Sequence (Iterative): ";
+    for (int i = 0; i < n; ++i) {
+        cout << a << " ";
+        next = a + b;
+        a = b;
+        b = next;
+    }
+    cout << endl;
+}
+
+// Function to calculate Fibonacci using recursive method
+unsigned long long fibonacciRecursive(int n) {
+    if (n <= 1) {
+        return n;
+    }
+    return fibonacciRecursive(n - 1) + fibonacciRecursive(n - 2);
+}
+
+int main() {
+    int number;
+    cout << "Enter the number of terms in the Fibonacci sequence: ";
+    cin >> number;
+
+    if (number < 0) {
+        cout << "Please enter a non-negative integer." << endl;
+        return 1;
+    }
+
+    // Calculate Fibonacci using iterative method
+    fibonacciIterative(number);
+
+    // Calculate Fibonacci using recursive method
+    cout << "Fibonacci Sequence (Recursive): ";
+    for (int i = 0; i < number; ++i) {
+        cout << fibonacciRecursive(i) << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
